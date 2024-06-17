@@ -25,6 +25,10 @@ export async function GET(req: Request) {
             title: `제목입니다${index + 1}.`,
             content: `내용입니다${index + 1}. 내용입니다${index + 1}. 내용입니다${index + 1}.`,
             createdAt: '1718873200000',
+            author: {
+                userId: uuidv4(),
+                username: ['애플', '사이다', '쭈니', '잭슨', '차둘'][index],
+            },
         }));
 
     return NextResponse.json({ result: 'success', data: data });
