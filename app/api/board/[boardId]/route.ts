@@ -1,32 +1,28 @@
 import { NextResponse } from 'next/server';
+import { v4 as uuidv4 } from 'uuid';
 
 // NOTE: 게시글 조회
 export async function GET(request: Request) {
     const data = {
-        boardId: '65f9bd2bc30889e1648aefee',
+        boardId: uuidv4(),
         title: '제목입니다.',
         content: '내용입니다. 내용입니다. 내용입니다.',
         createdAt: '1718873200000',
-        comments: [
-            {
-                commentId: '65f9bd2bc30889e1648aefee',
+        author: {
+            userId: uuidv4(),
+            username: '뽀야미',
+        },
+        comments: Array(4)
+            .fill(null)
+            .map((_, index) => ({
+                commentId: uuidv4(),
                 comment: '댓글입니다.',
                 createdAt: '1718873200000',
                 author: {
-                    userId: '0987654321',
-                    username: '댓글 작성자',
+                    userId: uuidv4(),
+                    username: ['애플', '사이다', '쭈니', '잭슨'][index],
                 },
-            },
-            {
-                commentId: '65f9bd2bc30889e1648aefee',
-                comment: '댓글입니다.',
-                createdAt: '1718873200000',
-                author: {
-                    userId: '0987654321',
-                    username: '댓글 작성자',
-                },
-            },
-        ],
+            })),
     };
 
     return NextResponse.json({
