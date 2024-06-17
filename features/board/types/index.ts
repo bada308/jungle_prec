@@ -7,3 +7,5 @@ export interface BoardInfo {
     createdAt: string;
     author: AuthorInfo;
 }
+
+export interface BoardSimpleInfo extends Pick<BoardInfo, 'title' | 'content'> {}
