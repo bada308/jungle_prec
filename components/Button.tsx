@@ -17,13 +17,13 @@ const colorClass = {
 
 const sizeClass = {
     sm: 'w-20 py-2 text-sm',
-    md: 'w-28 py-3 text-base font-bold',
+    md: 'w-28 py-3 text-base',
     lg: 'w-80 py-3 font-base font-bold text-lg',
 };
 
 const Button = ({ color, size, children }: ButtonProps) => {
     const buttonClass = clsx('rounded-lg border flex justify-center items-center', colorClass[color], sizeClass[size]);
-    return <div className={buttonClass}>{children}</div>;
+    return <button className={buttonClass}>{children}</button>;
 };
 
 export default Button;

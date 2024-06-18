@@ -15,7 +15,7 @@ const BorderedInput = ({ id, label, value, setValue, placeholder, children }: Bo
             <label htmlFor={id} className="text-gray">
                 {label}
             </label>
-            <div className="w-full flex gap-2 h-fit">
+            <div className="w-full flex gap-1 h-fit items-center">
                 <div className="border-2 border-gray rounded-lg px-4 py-3 w-full">
                     <Input id={id} value={value} setValue={setValue} placeholder={placeholder} />
                 </div>
