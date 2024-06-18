@@ -7,7 +7,7 @@ interface BoardListProps {
 
 const BoardList = ({ boardList }: BoardListProps) => {
     return (
-        <div className="space-y-6">
+        <div className="space-y-9">
             {boardList.map((board) => (
                 <BoardListItem key={board.boardId} {...board} />
             ))}
