@@ -1,5 +1,6 @@
 import Button from '@/components/Button';
 import Header from '@/components/Header';
+import UserInfo from '@/components/UserInfo';
 import { getBoardList } from '@/features/board';
 import { BoardInfoDto } from '@/features/board/apis/dtos';
 import BoardList from '@/features/board/components/list/BoardList';
@@ -14,7 +15,7 @@ const BoardListPage = async () => {
                 <div />
                 <HeaderContent />
             </Header>
-            <div className="w-[880px] mt-8 bg-white">
+            <div className="w-[1000px] mt-16 bg-white">
                 <BoardList boardList={boardList} />
             </div>
         </>
@@ -24,9 +25,7 @@ const BoardListPage = async () => {
 const HeaderContent = () => {
     return (
         <div className="flex gap-4 items-center">
-            <span className="text-darkGray">
-                <span className="text-blue">닉네임</span>님 반가워요!
-            </span>
+            <UserInfo username="강바다" />
             <div>
                 <Link href="/board/create">
                     <Button color="white" size="md">

@@ -9,7 +9,7 @@ const BoardCreatePage = () => {
             <Header>
                 <HeaderContent />
             </Header>
-            <div className="w-[880px] h-full mt-20 bg-white">
+            <div className="w-[1000px] h-full mt-20 bg-white">
                 <BoardCreateForm />
             </div>
         </>
