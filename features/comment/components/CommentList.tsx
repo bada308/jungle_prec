@@ -1,16 +1,19 @@
+import { CommentInfoDto } from '../apis/dtos';
 import CommentItem from './CommentItem';
-
-const CommentList = () => {
+interface CommentListProps {
+    comments: CommentInfoDto[];
+}
+const CommentList = ({ comments }: CommentListProps) => {
     return (
         <div className="flex flex-col gap-12 w-full h-fit py-10">
-            <CommentItem />
-            <CommentItem />
-            <CommentItem />
-            <CommentItem />
-            <CommentItem />
-            <CommentItem />
-            <CommentItem />
-            <CommentItem />
+            {comments.map((comment) => (
+                <CommentItem
+                    key={comment.commentId}
+                    comment={comment.comment}
+                    author={comment.author.username}
+                    createdAt={comment.createdAt}
+                />
+            ))}
         </div>
     );
 };

@@ -2,14 +2,19 @@ import Content from '@/components/Content';
 import BoardHeader from './BoardHeader';
 import UnderlineContainer from '@/components/UnderlineContainer';
 
-const BoardInfo = () => {
-    const text =
-        '안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅! 안녕하세요. \n\n게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!\n\n안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!';
+interface BoardInfoProps {
+    title: string;
+    content: string;
+    author: string;
+    createdAt: string;
+}
+
+const BoardInfo = ({ title, content, author, createdAt }: BoardInfoProps) => {
     return (
         <div className="w-full px-12 py-8 flex flex-col items-center gap-6">
-            <BoardHeader />
+            <BoardHeader title={title} author={author} createdAt={createdAt} />
             <UnderlineContainer>
-                <Content text={text} />
+                <Content text={content} />
             </UnderlineContainer>
         </div>
     );

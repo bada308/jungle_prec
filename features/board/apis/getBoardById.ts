@@ -8,7 +8,7 @@ export const getBoardById = async (boardId: string) => {
     });
     const { data } = await res.json();
     return {
-        boardInfo: new BoardInfoDto(data?.boardInfo),
+        boardInfo: new BoardInfoDto(data),
         comments: data?.comments?.map((comment: CommentInfo) => new CommentInfoDto(comment)),
     };
 };
