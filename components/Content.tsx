@@ -3,7 +3,7 @@ interface ContentProps {
 }
 
 const Content = ({ text }: ContentProps) => {
-    return <span className="font-Pretendard px-3 py-8">{text}</span>;
+    return <pre className="font-Pretendard px-3 pt-8 pb-12 w-full text-wrap">{text}</pre>;
 };
 
 export default Content;
