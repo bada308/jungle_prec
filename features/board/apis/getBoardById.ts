@@ -3,7 +3,7 @@ import { BoardInfoDto } from './dtos';
 import { CommentInfo } from '@/features/comment/types';
 
 export const getBoardById = async (boardId: string) => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/board/${boardId}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST_LOCAL}/board/${boardId}`, {
         method: 'GET',
     });
     const { data } = await res.json();
