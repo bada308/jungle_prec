@@ -11,29 +11,8 @@ const BoardListPage = async () => {
     const boardList: BoardInfoDto[] = await getBoardList();
     return (
         <>
-            <Header>
-                <div />
-                <HeaderContent />
-            </Header>
-            <div className="flex flex-1 flex-col w-[1000px] mt-16 bg-white h-fit">
-                <BoardList boardList={boardList} />
-            </div>
+            <BoardList boardList={boardList} />
         </>
-    );
-};
-
-const HeaderContent = () => {
-    return (
-        <div className="flex gap-4 items-center">
-            <UserInfo username="강바다" />
-            <div>
-                <Link href="/board/create">
-                    <Button color="white" size="md">
-                        새 글 작성
-                    </Button>
-                </Link>
-            </div>
-        </div>
     );
 };
 
