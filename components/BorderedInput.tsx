@@ -1,26 +1,40 @@
 import { ComponentProps } from 'react';
 import Input from './Input';
+import { UseFormRegister } from 'react-hook-form';
 
 interface BorderedInputProps extends ComponentProps<'input'> {
-    id: string;
+    name: string;
     label?: string;
-    value: string;
-    setValue: (value: string) => void;
     placeholder?: string;
     children?: React.ReactNode;
+    register: UseFormRegister<any>;
 }
 
-const BorderedInput = ({ id, label, value, setValue, placeholder, children, type = 'text' }: BorderedInputProps) => {
+const BorderedInput = ({
+    name,
+    label,
+    placeholder,
+    children,
+    type = 'text',
+    register,
+    required,
+}: BorderedInputProps) => {
     return (
         <div className="flex flex-col gap-2 w-full">
             {label && (
-                <label htmlFor={id} className="text-gray">
+                <label htmlFor={name} className="text-gray">
                     {label}
                 </label>
             )}
             <div className="w-full flex gap-1 h-fit items-center">
                 <div className="border-2 border-gray rounded-lg px-4 py-3 w-full">
-                    <Input id={id} value={value} setValue={setValue} placeholder={placeholder} type={type} />
+                    <input
+                        id={name}
+                        type={type}
+                        className="w-full h-fit placeholder:text-darkGray outline-none"
+                        placeholder={placeholder}
+                        {...register(name, { required })}
+                    />
                 </div>
                 {children}
             </div>
