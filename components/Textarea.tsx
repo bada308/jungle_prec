@@ -1,4 +1,6 @@
-interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+import { ComponentProps } from 'react';
+
+interface TextareaProps extends ComponentProps<'textarea'> {
     text: string;
     setText: (text: string) => void;
     placeholder?: string;

@@ -1,9 +1,10 @@
 import clsx from 'clsx';
+import { ComponentProps } from 'react';
 
 type Color = 'black' | 'white' | 'blue' | 'gray';
 type Size = 'sm' | 'md' | 'lg';
 
-interface ButtonProps extends React.HTMLAttributes<HTMLDivElement> {
+interface ButtonProps extends ComponentProps<'button'> {
     color: Color;
     size: Size;
 }
