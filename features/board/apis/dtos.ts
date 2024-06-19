@@ -1,3 +1,4 @@
+import { formatTimestampToDate } from '@/utils/format';
 import { BoardInfo } from '../types';
 
 export class BoardInfoDto {
@@ -14,7 +15,7 @@ export class BoardInfoDto {
         this.boardId = data.boardId;
         this.title = data.title;
         this.content = data.content;
-        this.createdAt = data.createdAt;
+        this.createdAt = formatTimestampToDate(+data.createdAt);
         this.author = {
             userId: data.author.userId,
             username: data.author.username,
