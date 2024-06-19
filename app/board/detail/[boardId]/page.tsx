@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import UserInfo from '@/components/UserInfo';
 import BoardHeader from '@/features/board/components/detail/BoardHeader';
 import BoardInfo from '@/features/board/components/detail/BoardInfo';
+import CommentContainer from '@/features/comment/components/CommentContainer';
 import Image from 'next/image';
 import React from 'react';
 
@@ -13,6 +14,7 @@ const BoardDetailPage = () => {
             </Header>
             <div className="w-[1000px] h-full mt-20 bg-white">
                 <BoardInfo />
+                <CommentContainer />
             </div>
         </>
     );
