@@ -10,9 +10,9 @@ interface ButtonProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const colorClass = {
     black: 'text-white bg-black border-black',
-    white: 'text-black bg-white border-lightGray',
-    blue: 'text-white bg-blue border-blue',
-    gray: 'text-darkGray bg-opacity-0 border-opacity-0',
+    white: 'text-black bg-white border-lightGray hover:bg-blue hover:text-white hover:border-blue',
+    blue: 'text-white bg-blue border-blue hover:bg-opacity-80',
+    gray: 'text-darkGray border-opacity-0 border-white hover:border-darkGray',
 };
 
 const sizeClass = {
@@ -22,7 +22,11 @@ const sizeClass = {
 };
 
 const Button = ({ color, size, children }: ButtonProps) => {
-    const buttonClass = clsx('rounded-lg border flex justify-center items-center', colorClass[color], sizeClass[size]);
+    const buttonClass = clsx(
+        'rounded-lg border-[1.5px] flex justify-center items-center  transition-colors duration-300 ease-in-out',
+        colorClass[color],
+        sizeClass[size],
+    );
     return <button className={buttonClass}>{children}</button>;
 };
 
