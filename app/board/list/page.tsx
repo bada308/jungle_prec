@@ -15,7 +15,7 @@ const BoardListPage = async () => {
                 <div />
                 <HeaderContent />
             </Header>
-            <div className="w-[1000px] mt-16 bg-white">
+            <div className="flex flex-1 flex-col w-[1000px] mt-16 bg-white h-fit">
                 <BoardList boardList={boardList} />
             </div>
         </>
