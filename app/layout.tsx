@@ -13,7 +13,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="ko">
-            <body className="font-LineSeedKR">{children}</body>
+            <body className="font-LineSeedKR w-screen flex flex-col items-center min-h-screen bg-background">
+                {children}
+            </body>
         </html>
     );
 }
