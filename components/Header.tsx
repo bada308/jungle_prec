@@ -71,6 +71,26 @@ const HeaderContent = () => {
         );
     }
 
+    if (pathname === '/login' || pathname === '/signup') {
+        return (
+            <>
+                <div />
+                <div className="flex gap-2">
+                    <Link href="/login">
+                        <Button color="gray" size="md">
+                            로그인
+                        </Button>
+                    </Link>
+                    <Link href="/signup">
+                        <Button color="white" size="md">
+                            회원가입
+                        </Button>
+                    </Link>
+                </div>
+            </>
+        );
+    }
+
     return <></>;
 };
 
