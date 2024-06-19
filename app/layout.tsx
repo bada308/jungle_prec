@@ -12,8 +12,8 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="ko" className="h-full">
-            <body className="font-LineSeedKR w-screen flex flex-col items-center h-full bg-background">{children}</body>
+        <html lang="ko" className="h-full w-full">
+            <body className="font-LineSeedKR w-full flex flex-col items-center h-full bg-background">{children}</body>
         </html>
     );
 }
