@@ -1,4 +1,3 @@
-import { https } from '@/apis/instance';
 import { CommentInfoDto } from '@/features/comment';
 import { BoardInfoDto } from './dtos';
 import { CommentInfo } from '@/features/comment/types';
