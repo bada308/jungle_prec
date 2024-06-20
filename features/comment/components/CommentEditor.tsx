@@ -3,26 +3,46 @@
 import BorderedInput from '@/components/BorderedInput';
 import Button from '@/components/Button';
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 const CommentEditor = () => {
-    const [comment, setComment] = useState('');
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors },
+    } = useForm();
+    const onSubmit = (data: any) => {
+        alert(JSON.stringify(data));
+    };
+    const onCreate = () => {
+        if (errors.comment) {
+            alert('댓글을 입력해주세요.');
+            return;
+        }
+    };
+    const onDecline = () => {
+        alert('취소되었습니다.');
+        reset();
+    };
+
     return (
-        <div className="flex flex-col gap-4">
+        <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
             <BorderedInput
-                id="comment"
+                name="comment"
                 placeholder="댓글을 입력해주세요."
-                value={comment}
-                setValue={(v) => setComment(v)}
+                register={register}
+                required="댓글을 입력해주세요."
             />
             <div className="flex gap-2 justify-end">
-                <Button color="gray" size="sm">
+                <Button color="gray" size="sm" onClick={() => onDecline()}>
                     취소
                 </Button>
-                <Button color="blue" size="sm">
+                <Button color="blue" size="sm" type="submit" onClick={() => onCreate()}>
                     작성
                 </Button>
             </div>
-        </div>
+        </form>
     );
 };
 

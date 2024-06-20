@@ -4,6 +4,7 @@ import BorderedInput from '@/components/BorderedInput';
 import Button from '@/components/Button';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { postLogin } from '../../apis/login';
+import { useRouter } from 'next/navigation';
 
 interface LoginData {
     userId: string;
@@ -11,12 +12,16 @@ interface LoginData {
 }
 
 const LoginForm = () => {
+    const router = useRouter();
     const { register, handleSubmit } = useForm<LoginData>();
     const onSubmit: SubmitHandler<LoginData> = (data) => {
         postLogin(data).then((res) => {
             console.log(res);
             if (res.msg === '로그인 성공') {
                 alert('로그인 성공');
+                router.push('/');
+                console.log(res.sessionId);
+                // document.cookie = 'JSESSIONID=' + res.sessionId + '; path=/;';
             } else {
                 alert('로그인 실패');
             }
@@ -37,7 +42,7 @@ const LoginForm = () => {
                     required
                 />
             </div>
-            <Button color="black" size="lg">
+            <Button color="black" size="lg" type="submit">
                 로그인
             </Button>
         </form>

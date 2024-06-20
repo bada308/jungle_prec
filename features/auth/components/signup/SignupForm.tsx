@@ -4,6 +4,7 @@ import BorderedInput from '@/components/BorderedInput';
 import Button from '@/components/Button';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { postSignup } from '../../apis/signup';
+import { useRouter } from 'next/navigation';
 
 interface SignupData {
     userId: string;
@@ -12,11 +13,13 @@ interface SignupData {
 }
 
 const SignupForm = () => {
+    const router = useRouter();
     const { register, handleSubmit } = useForm<SignupData>();
     const onSubmit: SubmitHandler<SignupData> = (data) => {
         postSignup({ userId: data.userId, password: data.password }).then((res) => {
             if (res.msg === '회원가입이 완료되었습니다.') {
                 alert('회원가입 성공');
+                router.push('/login');
             } else {
                 alert('회원가입 실패');
             }
@@ -48,7 +51,7 @@ const SignupForm = () => {
                     required
                 />
             </div>
-            <Button color="black" size="lg">
+            <Button color="black" size="lg" type="submit">
                 회원가입
             </Button>
         </form>
