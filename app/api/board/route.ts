@@ -1,29 +1,15 @@
 import { NextResponse } from 'next/server';
 import { v4 as uuidv4 } from 'uuid';
 
-// NOTE: 게시글 생성
-export async function POST(req: Request) {
-    const { title, content } = await req.json();
-    const data = {
-        boardId: uuidv4(),
-        title,
-        content,
-    };
-
-    return NextResponse.json({
-        result: 'success',
-        data: data,
-    });
-}
-
 // NOTE: 게시글 리스트 조회
 export async function GET(req: Request) {
+    const words = ['너구리', '세바스찬', '뽀야미', '푸바오', '문대'];
     const data = Array(5)
         .fill(null)
         .map((_, index) => ({
             boardId: uuidv4(),
-            title: `제목입니다${index + 1}.`,
-            content: `내용입니다${index + 1}. 내용입니다${index + 1}. 내용입니다${index + 1}.`,
+            title: `${words[Math.floor(Math.random() * words.length)]} 초대하기.`,
+            content: `안녕하세요.${index + 1} 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅! 안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!안녕하세요. 게시판 만들기 과제를 하고 있어요. 아자아자 화이팅!.`,
             createdAt: '1718873200000',
             author: {
                 userId: uuidv4(),
