@@ -1,13 +1,14 @@
 import clsx from 'clsx';
 import Input from './Input';
 import Title from './Title';
+import { UseFormRegister } from 'react-hook-form';
 
 interface UnderlineInputProps {
-    id: string;
+    name: string;
     label: string;
-    value: string;
-    setValue: (value: string) => void;
     placeholder?: string;
+    register: UseFormRegister<any>;
+    required?: boolean | string;
     type?: UnderlineInputType;
 }
 
@@ -18,17 +19,23 @@ const typeClass = {
     title: 'text-black text-2xl font-bold p-6',
 };
 
-const UnderlineInput = ({ id, label, value, setValue, placeholder, type = 'default' }: UnderlineInputProps) => {
+const UnderlineInput = ({ name, label, placeholder, type = 'default', register, required }: UnderlineInputProps) => {
     const UnderlineInputClass = clsx('border-b-2 border-gray w-full', typeClass[type]);
     return (
         <div className="flex flex-col gap-2 w-full">
             {type === 'default' && (
-                <label htmlFor={id} className="text-gray">
+                <label htmlFor={name} className="text-gray">
                     {label}
                 </label>
             )}
             <div className={UnderlineInputClass}>
-                <Input id={id} value={value} setValue={setValue} placeholder={placeholder} />
+                <input
+                    id={name}
+                    type={type}
+                    className="w-full h-fit placeholder:text-darkGray outline-none"
+                    placeholder={placeholder}
+                    {...register(name, { required })}
+                />
             </div>
         </div>
     );

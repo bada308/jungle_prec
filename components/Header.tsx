@@ -48,9 +48,6 @@ const HeaderContent = () => {
                     className="cursor-pointer"
                     onClick={() => router.back()}
                 />
-                <Button color="blue" size="md">
-                    제출하기
-                </Button>
             </>
         );
     }

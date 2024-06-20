@@ -22,14 +22,14 @@ const sizeClass = {
     lg: 'min-w-80 py-3 font-base font-bold text-lg',
 };
 
-const Button = ({ color, size, children, onClick }: ButtonProps) => {
+const Button = ({ color, size, children, onClick, type = 'button' }: ButtonProps) => {
     const buttonClass = clsx(
         'rounded-lg border-[1.5px] flex justify-center items-center  transition-colors duration-300 ease-in-out',
         colorClass[color],
         sizeClass[size],
     );
     return (
-        <button className={buttonClass} onClick={onClick}>
+        <button className={buttonClass} onClick={onClick} type={type}>
             {children}
         </button>
     );

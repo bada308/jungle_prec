@@ -1,17 +1,17 @@
 import { ComponentProps } from 'react';
+import { UseFormRegister } from 'react-hook-form';
 
 interface TextareaProps extends ComponentProps<'textarea'> {
-    text: string;
-    setText: (text: string) => void;
+    name: string;
+    register: UseFormRegister<any>;
     placeholder?: string;
 }
 
-const Textarea = ({ text, setText, placeholder }: TextareaProps) => {
+const Textarea = ({ name, register, placeholder }: TextareaProps) => {
     return (
         <textarea
             className="resize-none w-full outline-none font-Pretendard h-full px-3 py-6 placeholder:text-darkGray"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
+            {...register(name)}
             placeholder={placeholder ?? 'Type something here...'}
         />
     );

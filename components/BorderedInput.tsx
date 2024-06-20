@@ -2,12 +2,14 @@ import { ComponentProps } from 'react';
 import Input from './Input';
 import { UseFormRegister } from 'react-hook-form';
 
-interface BorderedInputProps extends ComponentProps<'input'> {
+interface BorderedInputProps {
     name: string;
     label?: string;
     placeholder?: string;
     children?: React.ReactNode;
     register: UseFormRegister<any>;
+    required?: boolean | string;
+    type?: 'text' | 'password' | 'email' | 'number';
 }
 
 const BorderedInput = ({
